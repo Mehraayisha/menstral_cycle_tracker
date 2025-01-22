@@ -12,7 +12,7 @@
 
   <div class="form-container">
     <h2>Enter Your Menstrual Cycle Details</h2>
-    <form method="POST">
+    <form method="POST" action="{% url 'cycle_details' %}">
       {% csrf_token %}
       
       <!-- Last Period Date -->
@@ -35,6 +35,11 @@
       </select>
 
       <input type="submit" value="Save Cycle Info">
+      <div>
+        {% for message in messages %}
+        <h3>{{ message }}</h3>
+        {% endfor %}
+  </div>
     </form>
   </div>
 

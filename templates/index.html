@@ -10,14 +10,10 @@
 </head>
 <body>
   <header>
-    <h1>{{ greeting }}</h1>
+    <h1>{{ greeting }},{{ request.user.username }}</h1>
     <h1>Welcome to our Tracker</h1>
   </header>
-  <nav>
-    <a href="accounts/login">Login</a>
-    <a href="accounts/signup">Sign Up</a>
-    <a href="accounts/logout">Logout</a>
-  </nav>
+
   <div class="container">
     
     <div id="calendar">
@@ -30,12 +26,17 @@
 
       <div class="calendar-row date-row">
         {% for day in week_dates %}
-          <!-- Highlight the current day -->
-          <div class="day {% if day.day == current_day_number %}current-day{% endif %}">
+          <div class="day {% if day in period_dates %}has-period{% endif %} {% if day.day == current_day_number %}current-day{% endif %}">
             {{ day.day }} <!-- Display only the day of the month -->
+      
+            <!-- Add the red dot if the day is in period_dates -->
+            {% if day in period_dates %}
+              <div class="red-dot"></div>
+            {% endif %}
           </div>
         {% endfor %}
       </div>
+      
       
     </div>
     <h2>Your Dashboard</h2>

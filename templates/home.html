@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,22 +6,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Period Helper</title>
-    <link rel="stylesheet" href="../static/styles/home.css">
+    <link rel="stylesheet" href="{% static 'styles/home.css' %}">
 </head>
 
 <body>
     <nav>
         <div class="logo">
-            <img src="../static/image/logo.jpg" alt="img" width="100px">
+            <img src="{% static 'image/logo.jpg' %}" alt="img" width="100px">
             <p>MOONSYNC</p>
         </div>
         <div class="features">
-            <div class="content"><a href="">TRACKING</a></div>
+            <div class="content"><a href="{% url 'tracker' %}">TRACKING</a></div>
             <div class="content"><a href="">SELFCARE</a></div>
             <div class="content"><a href="">PRODUCTS</a></div>
             <div class="content"><a href="">DOCTOR</a></div>
             <div class="content"><a href="">AI</a></div>
-            <div class="content"><a href="">LOGOUT</a></div>
+            <div class="content"><a href="{% url 'logout' %}">LOGOUT</a></div>
         </div>
     </nav>
     <div class="main">
@@ -43,7 +44,7 @@
             By law, councils and education providers now have to make these products available for free for anyone who
             needs them.
         </p>
-        <img src="../static/image/img1.jpg" width="400px">
+        <img src="{%  static 'image/img1.jpg' %} " width="400px">
     </div>
     <div class="quote">
         <h2>Empowering Cycles, Embracing Wellness</h2>
@@ -53,28 +54,28 @@
     <h1 id="thinks-h1">Flow with Strength: Simple Steps to Period Wellness</h1>
     <div class="thinks">
         <div class="col">
-            <img src="../static/image/col1.jpg" alt="img">
+            <img src="{% static 'image/col1.jpg' %}" alt="img">
         </div>
         <div class="col">
             "Warmth and care—your best remedy for cramps."
         </div>
         <div class="col">
-            <img src="../static/image/col2.jpg" alt="">
+            <img src="{% static 'image/col2.jpg' %}" alt="">
         </div>
         <div class="col">
             <p>"Water your body, nourish your soul."</p>
         </div>
         <div class="col">
-            <img src="../static/image/col3.jpg" alt="">
+            <img src="{% static 'image/col3.jpg' %}" alt="">
         </div>
         <div class="col">"Gentle steps, stronger vibes."</div>
         <div class="col">
-            <img src="../static/image/col4.jpg" alt="">
+            <img src="{% static 'image/col4.jpg' %}" alt="">
         </div>
         <div class="col">"Right products, better periods."</div>
 
         <div class="col">
-            <img src="../static/image/col5.jpg" alt="">
+            <img src="{% static 'image/col5.jpg' %}" alt="">
         </div>
         <div class="col">"Talk it out—empowered women empower women."</div>
     </div>
