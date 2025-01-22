@@ -1,8 +1,9 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import messages
-from django.contrib.auth import authenticate
+from django.contrib.auth import authenticate,login as auth_login
 from django.contrib import auth
+from django.core.exceptions import ValidationError
 # Logout view
 def logout(request):
     auth.logout(request)
@@ -26,31 +27,34 @@ def login(request):
 
     return render(request, 'login.html')
 
-# Signup view
 def signup(request):
     if request.method == 'POST':
-        
         username = request.POST.get('username', '')
         password1 = request.POST.get('password1', '')
         password2 = request.POST.get('password2', '')
+        email = request.POST.get('email', '')
 
         # Check if passwords match
         if password1 != password2:
             messages.error(request, 'Passwords do not match')
             return redirect('signup')
 
-        # Check if username already exists
+        # Check if username or email already exists
         if User.objects.filter(username=username).exists():
             messages.error(request, 'Username already exists')
             return redirect('signup')
+        
+        
 
         # Create the user if everything is valid
-        user = User.objects.create_user(username=username, password=password1)
+        user = User.objects.create_user(username=username, password=password1, email=email)
         user.save()
 
-        # Display success message and redirect to login page
-        messages.success(request, 'User created successfully. Please login.')
-        return redirect('login')  # Redirect to login page after successful signup
+        # Log the user in after successful signup
+        auth_login(request, user)
 
-    # If it's a GET request, render the signup page
+        # Redirect to the details page (cycle details collection page)
+        messages.success(request, 'User created successfully. Please complete your cycle details.')
+        return redirect('cycle_details')  # Redirect to cycle details page after signup
+
     return render(request, 'signup.html')

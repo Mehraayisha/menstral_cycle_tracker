@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cycle Details</title>
+  <!-- Link to the external CSS file -->
+  <link rel="stylesheet" href="{% static 'styles/details.css' %}">
+</head>
+<body>
+
+  <div class="form-container">
+    <h2>Enter Your Menstrual Cycle Details</h2>
+    <form method="POST">
+      {% csrf_token %}
+      
+      <!-- Last Period Date -->
+      <label for="last_period">Last Period Date:</label>
+      <input type="date" name="last_period" placeholder="Last Period Date" required>
+
+      <!-- Average Cycle Length -->
+      <label for="cycle_length">Average Cycle Length (days):</label>
+      <input type="number" name="cycle_length" placeholder="Cycle Length (days)" min="1" required>
+
+      <!-- Average Period Duration -->
+      <label for="period_duration">Average Period Duration (days):</label>
+      <input type="number" name="period_duration" placeholder="Period Duration (days)" min="1" required>
+
+      <!-- Cycle Regularity -->
+      <label for="cycle_regular">Is your cycle regular?</label>
+      <select name="cycle_regular" required>
+        <option value="True">Yes</option>
+        <option value="False">No</option>
+      </select>
+
+      <input type="submit" value="Save Cycle Info">
+    </form>
+  </div>
+
+</body>
+</html>

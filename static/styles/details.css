@@ -1,0 +1,77 @@
+/* General styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #fce4ec;  /* Light pink background */
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header styling */
+h1 {
+    text-align: center;
+    color: #d81b60;  /* Dark pink for header */
+    margin-top: 50px;
+}
+
+/* Form container */
+form {
+    background-color: #fff;  /* White background for form */
+    padding: 20px;
+    border-radius: 10px;
+    width: 70%;
+    margin: 20px auto;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Label styling */
+label {
+    font-size: 1.1em;
+    color: #d81b60;  /* Dark pink for text */
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* Input fields */
+input[type="date"],
+input[type="number"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0 20px 0;
+    border: 1px solid #f8bbd0;  /* Soft pink border */
+    border-radius: 8px;
+    font-size: 1em;
+}
+
+input[type="submit"] {
+    background-color: #d81b60;  /* Dark pink for submit button */
+    color: white;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1em;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease;
+}
+
+input[type="submit"]:hover {
+    background-color: #c2185b;  /* Slightly darker pink on hover */
+}
+
+/* Success page styling */
+.success-message {
+    text-align: center;
+    font-size: 1.5em;
+    color: #d81b60;
+    margin-top: 50px;
+}
+
+.success-message a {
+    color: #d81b60;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 20px;
+    display: inline-block;
+}
