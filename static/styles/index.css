@@ -61,6 +61,7 @@ h2 {
 
 /* Dates Styling */
 .date-row .day {
+    position: relative; /* Ensure the red dot is positioned relative to the day cell */
     padding: 10px;
     background-color: #ffcccc;
     text-align: center;
@@ -74,9 +75,29 @@ h2 {
     background-color: #D5006D; /* Dark pink color */
     font-weight: bold;
     color: white;  /* Make the text white for better contrast */
-  }
+}
 
 /* Hover effect on the days */
 #calendar .day:hover {
     background-color: #ffb3b3;
+}
+
+/* Red Dot Styling for Period Days */
+/* Red dot styling */
+.red-dot {
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 5px;  /* Adjust this value to position the dot */
+    left: 50%;
+    transform: translateX(-50%); 
+    z-index: 10; /* Center the dot */
+}
+
+
+/* Optional: Style for the calendar day with a red dot */
+.calendar-day.has-period {
+    background-color: #ffcccc; /* Light red background for period days */
 }

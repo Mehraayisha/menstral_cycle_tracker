@@ -1,19 +1,21 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Period Helper</title>
-    <link rel="stylesheet" href="../static/home.css">
+    {% csrf_token %}
+    <link rel="stylesheet" href="{% static 'styles/home.css' %}">
 </head>
 <body>
     <nav>
         <div class="logo">
-            <img src="../assets/logo.jpg" alt="img" width="100px">
+            <img src="{% static 'image/logo.jpg' %}" alt="img" width="100px">
             <p>MOONSYNC</p>
         </div>
         <div class="features">
-            <div class="content"><a href="">TRACKING</a></div>
+            <div class="content"><a href="{% url 'tracker' %}">TRACKING</a></div>
             <div class="content"><a href="">SELFCARE</a></div>
             <div class="content"><a href="">PRODUCTS</a></div>
             <div class="content"><a href="">DOCTOR</a></div>

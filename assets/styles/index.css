@@ -1,0 +1,103 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* Header */
+header {
+    background-color: #ff6f61;
+    color: white;
+    padding: 1.5rem 0;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+header h1 {
+    color: white;
+    font-size: 2rem;
+}
+
+/* Container */
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+h1 {
+    color: #ff6f61;
+}
+
+h2 {
+    margin: 20px 0;
+}
+
+/* Calendar Styling */
+#calendar {
+    padding: 20px;
+    background-color: #ffeff1;
+    border-radius: 8px;
+}
+
+/* Flexbox Row for Weekday Names and Dates */
+.calendar-row {
+    display: flex;
+    justify-content: space-around;  /* Space items evenly */
+    margin-bottom: 10px;
+}
+
+/* Weekday Names Styling */
+.weekday-row .day-name {
+    font-weight: bold;
+    text-align: center;
+    padding: 5px;
+    width: 50px;  /* Give space for each weekday */
+}
+
+/* Dates Styling */
+.date-row .day {
+    position: relative; /* Ensure the red dot is positioned relative to the day cell */
+    padding: 10px;
+    background-color: #ffcccc;
+    text-align: center;
+    border-radius: 5px;
+    font-weight: bold;
+    width: 50px;  /* Space for each date */
+}
+
+/* Highlight the current day with dark pink */
+#calendar .current-day {
+    background-color: #D5006D; /* Dark pink color */
+    font-weight: bold;
+    color: white;  /* Make the text white for better contrast */
+}
+
+/* Hover effect on the days */
+#calendar .day:hover {
+    background-color: #ffb3b3;
+}
+
+/* Red Dot Styling for Period Days */
+/* Red dot styling */
+.red-dot {
+    width: 10px;
+    height: 10px;
+    background-color: red;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 5px;  /* Adjust this value to position the dot */
+    left: 50%;
+    transform: translateX(-50%); 
+    z-index: 10; /* Center the dot */
+}
+
+
+/* Optional: Style for the calendar day with a red dot */
+.calendar-day.has-period {
+    background-color: #ffcccc; /* Light red background for period days */
+}

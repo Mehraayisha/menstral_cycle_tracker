@@ -1,11 +1,12 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
-
+    {% csrf_token %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="{% static 'styles/Signin.css' %}">
     <title>Login Page</title>
 </head>
 
@@ -13,7 +14,8 @@
 
     <div class="container" id="container">
         <div class="form-container sign-up">
-            <form>
+            <form method="POST" action="{% url 'signinup' %}">
+                {% csrf_token %}
                 <h1>Create Account</h1>
                 <br/>
                 <!-- <div class="social-icons">
@@ -23,14 +25,22 @@
                     <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
                 </div> -->
                 <!-- <span>or use your email for registeration</span> -->
-                <input type="text" placeholder="Name">
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
-                <button>Sign Up</button>
+                <input type="text" name="username" placeholder="Name">
+                <input type="email" name="email"placeholder="Email">
+                <input type="password" name="password1" placeholder="Password">
+                <input type="password" name="password2" placeholder="Confirm password">
+                <!-- Display error/success messages -->
+                    <div>
+                          {% for message in messages %}
+                          <h3>{{ message }}</h3>
+                          {% endfor %}
+                    </div>
+                <button type="submit" name="signup_submit">Sign Up</button>
             </form>
         </div>
         <div class="form-container sign-in">
-            <form>
+            <form method="POST" action="{% url 'signinup' %}">
+                {% csrf_token %}
                 <h1>Sign In</h1>
                 <br/>
                 <!-- <div class="social-icons">
@@ -40,11 +50,19 @@
                     <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
                 </div> -->
                 <!-- <span>or use your email password</span> -->
-                <input type="email" placeholder="Email">
-                <input type="password" placeholder="Password">
+                <input type="text" name="username" placeholder="username">
+                <input type="password" name="password" placeholder="Password">
+                
                 <!-- <a href="#">Forget Your Password?</a> -->
-                <button>Sign In</button>
-            </form>
+                <!-- Display error/success messages -->
+                <div>
+                    {% for message in messages %}
+                    <h3>{{ message }}</h3>
+                    {% endfor %}
+               </div>  
+
+                <button type="submit" name="signin_submit">Sign In</button>
+            </form >
         </div>
         <div class="toggle-container">
             <div class="toggle">
@@ -61,8 +79,9 @@
             </div>
         </div>
     </div>
+   
 
-    <script src="script.js"></script>
+    <script src="{% static 'js/Signinup.js' %}"></script>
 </body>
 
 </html>
