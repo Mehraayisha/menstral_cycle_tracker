@@ -1,9 +1,5 @@
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        // Focus on the first input of the form when the page loads
-        if (document.querySelector('.form-container .sign-up input[name="username"]:focus') === null) {
-            document.querySelector('.form-container .sign-up input[name="username"]').focus();
-        }
+
+
 
         // Get the container and buttons
         const container = document.getElementById('container');
@@ -19,5 +15,4 @@
         loginBtn.addEventListener('click', () => {
             container.classList.remove("active");
         });
-    });
-</script>
+   
