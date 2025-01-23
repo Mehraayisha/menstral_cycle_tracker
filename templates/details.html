@@ -11,7 +11,12 @@
 </head>
 
 <body>
-
+  <nav>
+    <div class="logo">
+      <img src="{% static 'image/logo.jpg' %}" alt="img" width="100px">
+      <p>MOONSYNC</p>
+    </div>
+  </nav>
   <div class="form-container">
     <h2>Enter Your Menstrual Cycle Details</h2>
     <form method="POST" action="{% url 'cycle_details' %}">
@@ -31,13 +36,22 @@
 
       <!-- Cycle Regularity -->
       <label for="cycle_regular">Is your cycle regular?</label>
-      <select name="cycle_regular" required>
+      <select name="cycle_regular" id="cycle_regular" required>
         <option value="True">Yes</option>
         <option value="False">No</option>
       </select>
 
+<<<<<<< HEAD
       <input type="submit" value="Save Cycle Info">
       
+=======
+      <input type="submit" value="Save Cycle ">
+      <div>
+        {% for message in messages %}
+        <h3>{{ message }}</h3>
+        {% endfor %}
+      </div>
+>>>>>>> 4e7377a7c30dd43a531e07772f4c9eeebb3b3f71
     </form>
   </div>
 

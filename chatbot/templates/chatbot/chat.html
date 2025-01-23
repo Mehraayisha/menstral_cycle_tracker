@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root{
+    --color:rgb(166, 98, 125);
+    --seccolor:rgb(240, 198, 215);
+    --text:white;
+    --third:rgb(255, 219, 233);
+    font-family: "Quicksand", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+*{
+    margin: 0;
+    padding: 0;
+}
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size:25px; 
+    background-color: rgb(253, 252, 253);
+    position: fixed;
+    top: 0px;
+    width: 100vw;
+}
+nav p{
+    color: var(--color); 
+    font-weight: 900;
+    font-size: xx-large;
+    background-color: rgb(253, 252, 253);
+}
+body{
+    position: relative;
+    background-color: var(--third);
+    
+}
+.footer{
+    position: fixed;
+    bottom: 8px;
+    width: 100vw;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+.footer input{
+    width: 700px;
+    color: var(--color); 
+}
+.footer input::selection{
+    /* color: var(--color);  */
+    border:3px solid var(--color) ;
+}
+button{
+    width:200px;
+    background-color: var(--color);
+    font-weight: 600;
+    color: var(--text); 
+}
+.footer >*{
+    height: 100%;
+    border:3px solid var(--color) ;
+    border-radius: 15px; 
+    font-size: large;
+}
+#body{
+    position: relative;
+    top: 100px;
+    width: 900px;
+    /* background-color: rgb(255, 255, 255); */
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    color: var(--text);
+    height: 100vw;
+}
+.chat-message {
+    margin: 10px 10px;
+    padding: 10px;
+    border-radius: 8px;
+    /* max-width: 75%; */
+    max-width: 400px;
+    overflow-y: auto;
+    overflow-wrap: anywhere;
+
+}
+.chat-message.user {
+    background:rgb(255, 252, 252);
+    align-self: flex-end;
+    color:var(--color);
+}
+.chat-message.bot {
+    background: var(--color);
+    align-self: flex-start;
+    color: var(--text);
+}
+    </style>
+</head>
+
+<body>
+    <nav>
+        <img src="{% static 'images/logo.jpg' %}" alt="Chatbot Logo" width="100px">
+        <p>CHATBOT</p>
+    </nav>
+    <div id="body"></div>
+    <div class="footer">
+        <input type="text" name="" id="user-input" placeholder="Type your message...">
+        <button id="sendbtn">Send</button>
+    </div>
+    <script>
+        const chatBody = document.getElementById("body");
+        const userInput = document.getElementById("user-input");
+        const sendButton = document.getElementById("sendbtn");
+
+        function addMessage(message, sender) {
+            const messageDiv = document.createElement("div");
+            messageDiv.className = `chat-message ${sender}`;
+            messageDiv.textContent = message;
+            chatBody.appendChild(messageDiv);
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        async function handleUserMessage() {
+            const userMessage = userInput.value.trim();
+            if (!userMessage) return;
+
+            addMessage(userMessage, "user");
+            userInput.value = "";
+            try {
+                const response = await fetch("/chatbot/chat/", {
+
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ message: userMessage }),
+                });
+
+                const data = await response.json();
+                const botReply = data.reply || "Sorry, I couldn't understand that.";
+                addMessage(botReply, "bot");
+            } catch (error) {
+                addMessage("Error connecting to the AI service.", "bot");
+            }
+        }
+
+        sendButton.addEventListener("click", handleUserMessage);
+        userInput.addEventListener("keypress", (e) => {
+            if (e.key === "Enter") handleUserMessage();
+        });
+    </script>
+</body>
+
+</html>
