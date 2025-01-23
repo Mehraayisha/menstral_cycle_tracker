@@ -47,7 +47,7 @@ h2 {
 /* Flexbox Row for Weekday Names and Dates */
 .calendar-row {
     display: flex;
-    justify-content: space-around;  /* Space items evenly */
+    justify-content: space-around;
     margin-bottom: 10px;
 }
 
@@ -56,25 +56,25 @@ h2 {
     font-weight: bold;
     text-align: center;
     padding: 5px;
-    width: 50px;  /* Give space for each weekday */
+    width: 50px;
 }
 
 /* Dates Styling */
 .date-row .day {
-    position: relative; /* Ensure the red dot is positioned relative to the day cell */
+    position: relative;
     padding: 10px;
     background-color: #ffcccc;
     text-align: center;
     border-radius: 5px;
     font-weight: bold;
-    width: 50px;  /* Space for each date */
+    width: 50px;
 }
 
-/* Highlight the current day with dark pink */
+/* Highlight the current day */
 #calendar .current-day {
-    background-color: #D5006D; /* Dark pink color */
+    background-color: #D5006D;
     font-weight: bold;
-    color: white;  /* Make the text white for better contrast */
+    color: white;
 }
 
 /* Hover effect on the days */
@@ -82,22 +82,76 @@ h2 {
     background-color: #ffb3b3;
 }
 
-/* Red Dot Styling for Period Days */
-/* Red dot styling */
+/* Red Dot Styling */
 .red-dot {
     width: 10px;
     height: 10px;
     background-color: red;
     border-radius: 50%;
     position: absolute;
-    bottom: 5px;  /* Adjust this value to position the dot */
+    bottom: 5px;
     left: 50%;
-    transform: translateX(-50%); 
-    z-index: 10; /* Center the dot */
+    transform: translateX(-50%);
+    z-index: 10;
 }
 
-
-/* Optional: Style for the calendar day with a red dot */
+/* Calendar day with a red dot */
 .calendar-day.has-period {
-    background-color: #ffcccc; /* Light red background for period days */
+    background-color: #ffcccc;
 }
+
+
+
+.progress-container {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    z-index: 20;
+  }
+
+  /* Outer static circle */
+  .outer-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: #ddd;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  /* Inner static circle */
+  .inner-circle {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: white;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 2;
+  }
+
+  /* Progress ring */
+  .progress-ring {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: conic-gradient(#4caf50 var(--progress, 0%), #ddd var(--progress, 0%));
+    z-index: 1;
+  }
+
+  /* Text displaying progress value */
+  .progress-value {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    z-index: 3;
+  }

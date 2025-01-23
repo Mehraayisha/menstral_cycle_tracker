@@ -11,6 +11,10 @@ def home(request):
 def login_redirect(request):
     return redirect('signinup')
 
+def products(request):
+    return render(request, 'products.html')
+
+
 @login_required
 def index(request):
     today = datetime.today().date()  # Get today's date
@@ -55,7 +59,7 @@ def index(request):
                 # Compare the period days with the current week dates
                 if period_day in week_dates:  # Compare date objects directly
                     period_dates.append(period_day)
-
+    period_data = get_period_progress(request.user)
     # Pass the variables to the template
     return render(request, "index.html", {
         'greeting': greeting,
@@ -64,7 +68,8 @@ def index(request):
         'today': today,
         'current_day_number': current_day_number,  # Pass the day number to highlight
         'cycle_info': cycle_info,
-        'period_dates': period_dates  # Pass the list of period dates
+        'period_dates': period_dates ,
+         'period_data': period_data, # Pass the list of period dates
     })
 
 
@@ -140,3 +145,78 @@ def cycle_details(request):
         return redirect('index')  # Redirect to home page after saving the details
 
     return render(request, 'details.html', {'cycle_info': cycle_info})  # Render the details page
+@login_required
+def render_period_circle(request):
+    user = request.user
+    period_data = {}
+
+    if MenstrualCycle.objects.filter(user=user).exists():
+        cycle_info = MenstrualCycle.objects.get(user=user)
+        last_period = cycle_info.last_period
+        cycle_length = cycle_info.cycle_length
+        period_duration = cycle_info.period_duration
+
+        # Calculate the start and end dates of the next period
+        next_period_start, next_period_end = predict_next_period(last_period, cycle_length, period_duration)
+
+        # Calculate days passed and days left
+        today = datetime.today().date()
+        if next_period_start <= today <= next_period_end:
+            # User is on their period
+            days_passed = (today - next_period_start).days + 1
+            days_left = period_duration - days_passed
+            progress = (days_passed / period_duration) * 100
+            on_period = True
+        else:
+            # User is not on their period
+            days_left = (next_period_start - today).days
+            days_passed = 0
+            progress = 0
+            on_period = False
+
+        period_data = {
+            'on_period': on_period,
+            'progress': progress,
+            'days_left': days_left,
+            'days_passed': days_passed,
+        }
+
+    return render(request, "index.html", {'period_data': period_data})
+
+def get_period_progress(user):
+    """
+    Calculate the period progress for a user.
+    :param user: The user object
+    :return: A dictionary with period progress data
+    """
+    if not MenstrualCycle.objects.filter(user=user).exists():
+        return None
+
+    cycle_info = MenstrualCycle.objects.get(user=user)
+    last_period = cycle_info.last_period
+    cycle_length = cycle_info.cycle_length
+    period_duration = cycle_info.period_duration
+
+    next_period_start, next_period_end = predict_next_period(last_period, cycle_length, period_duration)
+    today = datetime.today().date()
+
+    # Calculate progress
+    if next_period_start <= today <= next_period_end:
+        days_passed = (today - next_period_start).days + 1
+        days_left = period_duration - days_passed
+        progress = (days_passed / period_duration) * 100
+        on_period = True
+    else:
+        days_left = (next_period_start - today).days
+        days_passed = 0
+        progress = 0
+        on_period = False
+
+    return {
+        'on_period': on_period,
+        'progress': progress,
+        'days_left': days_left,
+        'days_passed': days_passed,
+    }
+
+

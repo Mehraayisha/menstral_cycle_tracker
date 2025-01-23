@@ -10,4 +10,4 @@ class MenstrualCycle(models.Model):
     cycle_regular = models.BooleanField(help_text="Is the cycle regular?")
     
     def __str__(self):
-        return f"{self.user.username}'s Menstrual Cycle"
+        return f"{self.user.username}'s Menstrual Cycle" 

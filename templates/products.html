@@ -1,48 +1,50 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Products Page</title>
-    <link rel="stylesheet" href="../static/styles/products.css">
+    <link rel="stylesheet" href="{% static 'styles/products.css' %}">
 </head>
 <body>
     <nav>
         <div class="logo">
-            <img src="../static/image/logo.jpg" alt="img" width="100px">
+            <img src="{% static 'image/logo.jpg'  %}" alt="img" width="100px">
             <p>MOONSYNC</p>
         </div>
-        <div id="goback"><a href="home.html">GO BACK</a></div>
+        <div id="goback"><a href="{% url 'home' %}">GO BACK</a></div>
+
     </nav>
     <div id="contents">
         
     </div>
     <div class="product">
         <div class="col">
-            <img src="../static/image/pad3.jpg" alt="img">
+            <img src="{% static 'image/pad3.jpg' %}" alt="img">
         </div>
         <div class="col">
-            <img src="../static/image/pad.jpg" alt="img">
+            <img src="{% static 'image/pad.jpg' %}" alt="img">
         </div>
         <div class="col">
-            <img src="../static/image/tampon2.jpg" alt="img">
+            <img src="{% static 'image/tampon2.jpg' %}" alt="img">
         </div>
         <div class="col">
-            <img src="../static/image/disc1.jpg" alt="img">
+        <img src="{% static 'image/disc1.jpg' %} " alt="img">
         </div>
     </div>
     <div class="product2">
         <div class="col">
-            <img src="../static/image/hotbag.jpg" alt="img">
+            <img src="{% static 'image/hotbag.jpg' %}" alt="img">
         </div>
         <div class="col">
-            <img src="../static/image/liner.jpg" alt="img">
+            <img src="{% static 'image/liner.jpg' %}" alt="img">
         </div>
         <div class="col">
-            <img src="../static/image/steri1.jpg" alt="img">
+            <img src="{% static 'image/steri1.jpg' %}" alt="img">
         </div>
         <div class="col">
-            <img src="../static/image/panty1.jpg" alt="img">
+            <img src="{%  static 'image/panty1.jpg' %}" alt="img">
         </div>
     </div>
     <div class="links">
