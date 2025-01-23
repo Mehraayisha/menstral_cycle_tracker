@@ -1,13 +1,3 @@
-<<<<<<< HEAD
-/* General Styles */
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    color: #333;
-    margin: 0;
-    padding: 0;
-    line-height: 1.6;
-=======
 @import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap');
 :root{
     --color:rgb(166, 98, 125);
@@ -16,15 +6,12 @@ body {
     --third:rgb(255, 219, 233);
     font-family: "Quicksand", serif;
     font-optical-sizing: auto;
-    font-style: normal
-    /
-   
+    font-style: normal;
 }
 *{
     padding: 0;
     margin: 0;
     color: var(--color);
-    
 }
 body{
     position: relative;
@@ -69,99 +56,74 @@ nav{
     z-index: 100;
     width: 100vw;
     background-color: rgb(253, 252, 253);
->>>>>>> f32bd92cfc6077859dc08c4ff7a190e565812d08
 }
 
-/* Header */
-header {
-    background-color: #ff6f61;
-    color: white;
-    padding: 1.5rem 0;
-    text-align: center;
-    font-size: 1.5rem;
+.main{
+    background-color: var(--color);
+    color: var(--text);
+    width: 100vw;
+    height: 90vh;
+    margin-top: 100px;
+    background-image: url("../image/img1.jpg");
+    opacity:0.1;
+    position: relative;
+    top: -100px;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: 1;
 }
-
-header h1 {
-    color: white;
-    font-size: 2rem;
-}
-
-/* Container */
-.container {
-    max-width: 800px;
-    margin: 50px auto;
-    text-align: center;
-}
-
-h1 {
-    color: #ff6f61;
-}
-
-h2 {
-    margin: 20px 0;
-}
-
-/* Calendar Styling */
-#calendar {
-    padding: 20px;
-    background-color: #ffeff1;
-    border-radius: 8px;
-}
-
-/* Flexbox Row for Weekday Names and Dates */
-.calendar-row {
+.box{
     display: flex;
-    justify-content: space-around;  /* Space items evenly */
-    margin-bottom: 10px;
-}
-
-/* Weekday Names Styling */
-.weekday-row .day-name {
-    font-weight: bold;
-    text-align: center;
-    padding: 5px;
-    width: 50px;  /* Give space for each weekday */
-}
-
-/* Dates Styling */
-.date-row .day {
-    position: relative; /* Ensure the red dot is positioned relative to the day cell */
-    padding: 10px;
-    background-color: #ffcccc;
-    text-align: center;
-    border-radius: 5px;
-    font-weight: bold;
-    width: 50px;  /* Space for each date */
-}
-
-/* Highlight the current day with dark pink */
-#calendar .current-day {
-    background-color: #D5006D; /* Dark pink color */
-    font-weight: bold;
-    color: white;  /* Make the text white for better contrast */
-}
-
-/* Hover effect on the days */
-#calendar .day:hover {
-    background-color: #ffb3b3;
-}
-
-/* Red Dot Styling for Period Days */
-/* Red dot styling */
-.red-dot {
-    width: 10px;
-    height: 10px;
-    background-color: red;
-    border-radius: 50%;
     position: absolute;
-    bottom: 5px;  /* Adjust this value to position the dot */
-    left: 50%;
-    transform: translateX(-50%); 
-    z-index: 50; /* Center the dot */
+    justify-content: space-around;
+    align-items: center;
+    /* z-index:10; */
+    top: 100px;
+    /* gap: 100px; */
+    width: 70vw;
+    background-color: var(--seccolor);
+    transform: translateX(15%);
+    border-radius: 20px;
+    z-index: -10;
+
 }
-
-
-/* Optional: Style for the calendar day with a red dot */
-.calendar-day.has-period {
-    background-color: #ffcccc; /* Light red background for period days */
+.box p{
+    background-color: var(--seccolor);
+    border-radius: 20px;
+    padding: 50px;
+}
+.box img{
+    border-radius: 20px;
+}
+.quote{
+    height: 180px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--seccolor);
+    margin-top: -100px;
+}
+.thinks{
+    display: flex;
+    flex-wrap: wrap;
+    /* justify-content: center; */
+    align-items: center;
+    margin: 50px;
+}
+.col{
+    width: 280px;
+    height: 300px;
+    background-color: var(--third);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.col img{
+    width: 100%;
+    height: 100%;
+}
+#thinks-h1{
+    text-align: center;
+    margin-top: 40px;
 }

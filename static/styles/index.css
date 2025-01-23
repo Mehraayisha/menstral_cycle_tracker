@@ -100,5 +100,58 @@ h2 {
     background-color: #ffcccc;
 }
 
-/* Circular Progress */
 
+
+.progress-container {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    z-index: 20;
+  }
+
+  /* Outer static circle */
+  .outer-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: #ddd;
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  /* Inner static circle */
+  .inner-circle {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: white;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 2;
+  }
+
+  /* Progress ring */
+  .progress-ring {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: conic-gradient(#4caf50 var(--progress, 0%), #ddd var(--progress, 0%));
+    z-index: 1;
+  }
+
+  /* Text displaying progress value */
+  .progress-value {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    font-weight: bold;
+    color: #333;
+    z-index: 3;
+  }
