@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Quicksand:wght@300..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap');
 :root{
     --color:rgb(166, 98, 125);
@@ -30,12 +31,12 @@ nav{
     top:0px;
     width:100vw;
     background-color: rgb(253, 252, 253);
+    z-index: 20;
 }
 #goback{
     align-self: center;
 }
 #goback a{
-    /* align-self: center; */
     text-decoration: none;
     color: var(--color);
     font-size:large;
@@ -61,10 +62,89 @@ nav{
     background-repeat: no-repeat;
     background-size: contain;
     background-position: center;
-    height:80vh;
+    height: 130vh;
     width:100vw;
-    /* opacity:0.75; */
+    opacity:0.1;
     margin-top: 100px;
-    /* object-fit: contain; */
-    
+    position: relative;
+}
+ .product{
+    height: auto;
+    width:100vw;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content:center;
+    gap:20px;
+    padding: 20px 0;
+    z-index: 10;
+    position: absolute;
+    top:148px;
+ }
+ .product2{
+    height: auto;
+    width:100vw;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content:center;
+    gap:20px;
+    padding: 20px 0;
+    z-index: 10;
+    position: absolute;
+    top:583px;
+ }
+ .col{
+    width: 280px;
+    height: 300px;
+    background-color: var(--third);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    border: solid 4px rgb(166, 98, 125);
+}
+.col img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.links{
+    height: auto;
+    width:100vw;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content:center;
+    gap:200px;
+    padding: 20px 0;
+    z-index: 10;
+    position: absolute;
+    top:485px;
+    font-size:19px;
+    font-weight:500;
+}
+a{
+    text-decoration: none;
+}
+/* a:hover{
+    font-size: 25px;
+} */
+.links2{
+    height: auto;
+    width:100vw;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content:center;
+    gap:200px;
+    padding: 20px 0;
+    z-index: 10;
+    position: absolute;
+    top:927px; 
+    font-size: 19px;
+    font-weight: 500;
 }
