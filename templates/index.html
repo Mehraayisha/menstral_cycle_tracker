@@ -10,6 +10,10 @@
   <link rel="stylesheet" href="{% static 'styles/index.css' %}">
 </head>
 <body>
+  <nav>
+      <img src="{% static 'image/logo.jpg' %}" alt="img" width="100px">
+      <p>MOONSYNC</p>
+  </nav>
   <header>
     <h1>{{ greeting }},{{ request.user.username }}</h1>
     <h1>Welcome to our Tracker</h1>

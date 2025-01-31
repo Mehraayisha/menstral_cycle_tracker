@@ -1,3 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap');
+:root{
+    --color:rgb(166, 98, 125);
+    --seccolor:rgb(240, 198, 215);
+    --text:white;
+    --third:rgb(255, 219, 233);
+    font-family: "Quicksand", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+   
+}
 /* General Styles */
 body {
     font-family: Arial, sans-serif;
@@ -6,8 +17,25 @@ body {
     margin: 0;
     padding: 0;
     line-height: 1.6;
+    font-family: "Quicksand", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
 }
-
+nav{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    font-size:25px;  
+    /* background-color: rgb(253, 252, 253); */
+    background-color: #D5006D;
+}
+nav p{
+    color: var(--color); 
+    font-weight: 900;
+    font-size: xx-large;
+    margin-left: -10px;
+}
 /* Header */
 header {
     background-color: #ff6f61;
