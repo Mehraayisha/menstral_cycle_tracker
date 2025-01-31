@@ -1,6 +1,4 @@
 from django.shortcuts import render
-
-# Create your views here.
 from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 import json
@@ -70,8 +68,9 @@ def example_view(request):
 
 @csrf_exempt
 def chat_with_gemini(request):
-    if request.method == "POST":
-        try:
+    if request.method != "POST":
+        return JsonResponse({"reply": "Invalid request method."}, status=405)
+    try:
             # Parse the incoming request
             body = json.loads(request.body)
             user_message = body.get("message", "")
@@ -95,7 +94,7 @@ def chat_with_gemini(request):
                 return JsonResponse({"reply": ai_reply})
 
             return JsonResponse({"error": "Failed to process request"}, status=response.status_code)
-        except Exception as e:
+    except Exception as e:
             return JsonResponse({"reply": f"Error: {str(e)}"}, status=500)
     
             # response = client.predict(
