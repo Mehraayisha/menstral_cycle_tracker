@@ -6,100 +6,113 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        :root{
-    --color:rgb(166, 98, 125);
-    --seccolor:rgb(240, 198, 215);
-    --text:white;
-    --third:rgb(255, 219, 233);
-    font-family: "Quicksand", serif;
-    font-optical-sizing: auto;
-    font-style: normal;
-}
-*{
-    margin: 0;
-    padding: 0;
-}
-nav{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size:25px; 
-    background-color: rgb(253, 252, 253);
-    position: fixed;
-    top: 0px;
-    width: 100vw;
-}
-nav p{
-    color: var(--color); 
-    font-weight: 900;
-    font-size: xx-large;
-    background-color: rgb(253, 252, 253);
-}
-body{
-    position: relative;
-    background-color: var(--third);
-    
-}
-.footer{
-    position: fixed;
-    bottom: 8px;
-    width: 100vw;
-    height: 50px;
-    display: flex;
-    justify-content: center;
-    gap: 30px;
-}
-.footer input{
-    width: 700px;
-    color: var(--color); 
-}
-.footer input::selection{
-    /* color: var(--color);  */
-    border:3px solid var(--color) ;
-}
-button{
-    width:200px;
-    background-color: var(--color);
-    font-weight: 600;
-    color: var(--text); 
-}
-.footer >*{
-    height: 100%;
-    border:3px solid var(--color) ;
-    border-radius: 15px; 
-    font-size: large;
-}
-#body{
-    position: relative;
-    top: 100px;
-    width: 900px;
-    /* background-color: rgb(255, 255, 255); */
-    margin: auto;
-    display: flex;
-    flex-direction: column;
-    color: var(--text);
-    height: 100vw;
-}
-.chat-message {
-    margin: 10px 10px;
-    padding: 10px;
-    border-radius: 8px;
-    /* max-width: 75%; */
-    max-width: 400px;
-    overflow-y: auto;
-    overflow-wrap: anywhere;
+        :root {
+            --color: rgb(166, 98, 125);
+            --seccolor: rgb(240, 198, 215);
+            --text: white;
+            --third: rgb(255, 219, 233);
+            font-family: "Quicksand", serif;
+            font-optical-sizing: auto;
+            font-style: normal;
+        }
 
-}
-.chat-message.user {
-    background:rgb(255, 252, 252);
-    align-self: flex-end;
-    color:var(--color);
-}
-.chat-message.bot {
-    background: var(--color);
-    align-self: flex-start;
-    color: var(--text);
-}
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 25px;
+            background-color: rgb(253, 252, 253);
+            position: fixed;
+            top: 0px;
+            width: 100vw;
+        }
+
+        nav p {
+            color: var(--color);
+            font-weight: 900;
+            font-size: xx-large;
+            background-color: rgb(253, 252, 253);
+        }
+
+        body {
+            position: relative;
+            background-color: var(--third);
+
+        }
+
+        .footer {
+            position: fixed;
+            bottom: 8px;
+            width: 100vw;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .footer input {
+            width: 700px;
+            color: var(--color);
+        }
+
+        .footer input::selection {
+            /* color: var(--color);  */
+            border: 3px solid var(--color);
+        }
+
+        button {
+            width: 200px;
+            background-color: var(--color);
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        .footer>* {
+            height: 100%;
+            border: 3px solid var(--color);
+            border-radius: 15px;
+            font-size: large;
+        }
+
+        #body {
+            position: relative;
+            top: 100px;
+            width: 900px;
+            /* background-color: rgb(255, 255, 255); */
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            color: var(--text);
+            height: 100vw;
+        }
+
+        .chat-message {
+            margin: 10px 10px;
+            padding: 10px;
+            border-radius: 8px;
+            /* max-width: 75%; */
+            max-width: 400px;
+            overflow-y: auto;
+            overflow-wrap: anywhere;
+
+        }
+
+        .chat-message.user {
+            background: rgb(255, 252, 252);
+            align-self: flex-end;
+            color: var(--color);
+        }
+
+        .chat-message.bot {
+            background: var(--color);
+            align-self: flex-start;
+            color: var(--text);
+        }
     </style>
 </head>
 
@@ -114,6 +127,68 @@ button{
         <button id="sendbtn">Send</button>
     </div>
     <script>
+        const chatBody = document.getElementById("body");
+        const userInput = document.getElementById("user-input");
+        const sendButton = document.getElementById("sendbtn");
+
+        function addMessage(message, sender) {
+            const messageDiv = document.createElement("div");
+            messageDiv.className = `chat-message ${sender}`;
+            messageDiv.textContent = message;
+            chatBody.appendChild(messageDiv);
+            chatBody.scrollTop = chatBody.scrollHeight;
+        }
+
+        async function handleUserMessage() {
+            const userMessage = userInput.value.trim();
+            if (!userMessage) return;
+
+            // Display user message in the chat body
+            addMessage(userMessage, "user");
+            userInput.value = "";
+
+            try {
+                // Send the user's message to the /generate-content API
+                const response = await fetch('/chatbot/generate-content/', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ text: userMessage })  // Send user's message
+                });
+
+                const data = await response.json();
+                const botReply = data.candidates ? data.candidates[0].content.parts[0].text : "Sorry, I couldn't understand that.";
+
+                // Display bot's response in the chat body
+                addMessage(botReply, "bot");
+
+            } catch (error) {
+                // Display error message if something goes wrong
+                addMessage("Error connecting to the AI service.", "bot");
+            }
+        }
+
+        // Listen for button click or Enter key press to send the message
+        sendButton.addEventListener("click", handleUserMessage);
+        userInput.addEventListener("keypress", (e) => {
+            if (e.key === "Enter") handleUserMessage();
+        });
+    </script>
+
+    <!-- <script>
+        // -------new change to api-------
+        fetch('/generate-content/', {
+    method: 'POST',
+    headers: {
+        'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ text: "How does AI work?" })  // Change the text as needed
+})
+.then(response => response.json())
+.then(data => console.log(data))
+.catch(error => console.error('Error:', error));
+// -----------------------
         const chatBody = document.getElementById("body");
         const userInput = document.getElementById("user-input");
         const sendButton = document.getElementById("sendbtn");
@@ -154,7 +229,7 @@ button{
         userInput.addEventListener("keypress", (e) => {
             if (e.key === "Enter") handleUserMessage();
         });
-    </script>
+    </script> -->
 </body>
 
 </html>

@@ -4,7 +4,9 @@ from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from tracker1.models import MenstrualCycle # Import the MenstrualCycle model
+#by sherin
 
+#------
 def home(request):
     return render(request, 'home.html') 
 
