@@ -47,12 +47,22 @@
     <h2>Your Dashboard</h2>
     <p>Track your tasks and progress efficiently.</p>
     
-   <div class="progress-container">
-  <div class="outer-circle"></div>
-  <div class="progress-ring" style="--progress: {{ progress }}%;"></div>
-  <div class="inner-circle"></div>
-  <div class="progress-value" id="progressValue">{{ progress }}%</div>
-</div>
+    <div class="progress-container">
+      {% if period_data.on_period %}
+          <!-- Progress Ring -->
+          <div class="outer-circle">
+              <div class="progress-ring" id="progressRing" data-progress="{{ period_data.progress }}"></div>
+              <div class="inner-circle"></div>
+          </div>
+          
+          <!-- Progress Value -->
+          <div class="progress-value" id="progressValue">{{ period_data.progress }}%</div>
+      {% else %}
+          <p>Your period is coming in {{ period_data.days_left }} days!</p>
+      {% endif %}
+  </div>
+  
+    
 
 
   <script src="{% static 'js/index.js' %}"></script>

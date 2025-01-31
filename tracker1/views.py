@@ -61,7 +61,10 @@ def index(request):
                 # Compare the period days with the current week dates
                 if period_day in week_dates:  # Compare date objects directly
                     period_dates.append(period_day)
-    period_data = get_period_progress(request.user)
+            period_data = get_period_progress(last_period_date, cycle_length, period_duration)
+        else:
+            period_data = None  # No menstrual cycle info for the user
+
     # Pass the variables to the template
     return render(request, "index.html", {
         'greeting': greeting,
@@ -147,78 +150,31 @@ def cycle_details(request):
         return redirect('index')  # Redirect to home page after saving the details
 
     return render(request, 'details.html', {'cycle_info': cycle_info})  # Render the details page
-@login_required
-def render_period_circle(request):
-    user = request.user
-    period_data = {}
+from datetime import datetime, timedelta
+from tracker1.models import MenstrualCycle
 
-    if MenstrualCycle.objects.filter(user=user).exists():
-        cycle_info = MenstrualCycle.objects.get(user=user)
-        last_period = cycle_info.last_period
-        cycle_length = cycle_info.cycle_length
-        period_duration = cycle_info.period_duration
-
-        # Calculate the start and end dates of the next period
-        next_period_start, next_period_end = predict_next_period(last_period, cycle_length, period_duration)
-
-        # Calculate days passed and days left
-        today = datetime.today().date()
-        if next_period_start <= today <= next_period_end:
-            # User is on their period
-            days_passed = (today - next_period_start).days + 1
-            days_left = period_duration - days_passed
-            progress = (days_passed / period_duration) * 100
-            on_period = True
-        else:
-            # User is not on their period
-            days_left = (next_period_start - today).days
-            days_passed = 0
-            progress = 0
-            on_period = False
-
-        period_data = {
-            'on_period': on_period,
-            'progress': progress,
-            'days_left': days_left,
-            'days_passed': days_passed,
-        }
-
-    return render(request, "index.html", {'period_data': period_data})
-
-def get_period_progress(user):
-    """
-    Calculate the period progress for a user.
-    :param user: The user object
-    :return: A dictionary with period progress data
-    """
-    if not MenstrualCycle.objects.filter(user=user).exists():
-        return None
-
-    cycle_info = MenstrualCycle.objects.get(user=user)
-    last_period = cycle_info.last_period
-    cycle_length = cycle_info.cycle_length
-    period_duration = cycle_info.period_duration
-
-    next_period_start, next_period_end = predict_next_period(last_period, cycle_length, period_duration)
+def get_period_progress(last_period_date, cycle_length, period_duration):
     today = datetime.today().date()
+    # Calculate the start and end of the current period
+    next_period_start, next_period_end = predict_next_period(last_period_date, cycle_length, period_duration)
 
-    # Calculate progress
     if next_period_start <= today <= next_period_end:
-        days_passed = (today - next_period_start).days + 1
-        days_left = period_duration - days_passed
-        progress = (days_passed / period_duration) * 100
-        on_period = True
+        # User is on their period, calculate the progress
+        days_into_period = (today - next_period_start).days + 1  # +1 because the period starts on the first day
+        progress = (days_into_period / period_duration) * 100
+        return {
+            'on_period': True,
+            'progress': round(progress, 2),
+            'days_left': None  # No need to show days left if on period
+        }
     else:
-        days_left = (next_period_start - today).days
-        days_passed = 0
-        progress = 0
-        on_period = False
-
-    return {
-        'on_period': on_period,
-        'progress': progress,
-        'days_left': days_left,
-        'days_passed': days_passed,
-    }
-
-
+        # User is not on their period, calculate days until next period
+        days_until_next_period = (next_period_start - today).days
+        if days_until_next_period < 0:
+            # In case there's a mistake with the dates, fallback to zero days
+            days_until_next_period = 0
+        return {
+            'on_period': False,
+            'progress': 0,
+            'days_left': days_until_next_period
+        }

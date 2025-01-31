@@ -103,6 +103,7 @@ h2 {
     background-color: #D5006D;
     font-weight: bold;
     color: white;
+    z-index: 15;
 }
 
 /* Hover effect on the days */
@@ -114,7 +115,7 @@ h2 {
 .red-dot {
     width: 10px;
     height: 10px;
-    background-color: red;
+    background-color: #D5006D;
     border-radius: 50%;
     position: absolute;
     bottom: 5px;
