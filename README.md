@@ -64,7 +64,7 @@ For Hardware:
 
 ### Project Demo
 # Video
-https://github.com/Mehraayisha/menstral_cycle_tracker/blob/main/video%20(1).mp4
+(https://drive.google.com/file/d/13uxGYKCaafmqZhQOyLieZftQO5bgaQH1/view?usp=sharing)
 
 
 ## Team Contributions
