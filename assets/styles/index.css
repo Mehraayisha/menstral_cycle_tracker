@@ -28,7 +28,7 @@ nav{
     flex-direction: row;
     font-size:25px;  
     /* background-color: rgb(253, 252, 253); */
-    background-color: #D5006D;
+    background-color: #e5d5dd;
 }
 nav p{
     color: var(--color); 
@@ -68,7 +68,7 @@ h2 {
 /* Calendar Styling */
 #calendar {
     padding: 20px;
-    background-color: #ffeff1;
+    background-color: #840c1a;
     border-radius: 8px;
 }
 
@@ -100,9 +100,10 @@ h2 {
 
 /* Highlight the current day */
 #calendar .current-day {
-    background-color: #D5006D;
+    background-color: #dc75aa;
     font-weight: bold;
     color: white;
+    z-index: 15;
 }
 
 /* Hover effect on the days */
@@ -114,7 +115,7 @@ h2 {
 .red-dot {
     width: 10px;
     height: 10px;
-    background-color: red;
+    background-color: #D5006D;
     border-radius: 50%;
     position: absolute;
     bottom: 5px;

@@ -25,7 +25,7 @@ def generate_content(request):
 
         # Define the endpoint for the Gemini API
         # endpoint = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent"
-        endpoint = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyCVvY51Vg4kcdyhibt2g6dpeu53NIpE8Uc"
+        endpoint = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyC4W6PgbkLkkeNlunJgFkqqYjLwYEMgmSo"
 
         # Extract input text from request body
         import json
@@ -84,7 +84,8 @@ def chat_with_gemini(request):
 
             # Send the message to the Gemini model
             # client = aiplatform.gapic.PredictionServiceClient()
-            endpoint = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyCVvY51Vg4kcdyhibt2g6dpeu53NIpE8Uc"
+            endpoint = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyC4W6PgbkLkkeNlunJgFkqqYjLwYEMgmSo"
+            # endpoint = "https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=AIzaSyCZ4uOsatH2bfkzoNmzkBiow_q6is3enFE"
             headers = {"Content-Type": "application/json"}
             data = {"contents": [{"parts": [{"text": user_message}]}]}
 
