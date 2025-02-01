@@ -1,10 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
 
 :root{
-    --lighter:#FFD1DC;
+    /* --lighter:#FFD1DC;
     --light:#FFB6C1;
     --dark:#FF69B4;
-    --darkest:#921A40;
+    --darkest:#921A40; */
+    --lighter:#fbe5ea;
+    --light:#e2b5bc;
+    --dark:rgb(164, 119, 137);
+    --darkest:rgb(166, 98, 125);
 }
 *{
     margin: 0;

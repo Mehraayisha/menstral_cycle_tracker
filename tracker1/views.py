@@ -16,6 +16,8 @@ def login_redirect(request):
 def products(request):
     return render(request, 'products.html')
 
+def video(request):
+    return render(request, 'video.html')
 
 @login_required
 def index(request):
@@ -56,14 +58,14 @@ def index(request):
             next_period_start, next_period_end = predict_next_period(last_period_date, cycle_length, period_duration)
 
             # Check if the period overlaps with the current week
-            for i in range(period_duration):  # period_duration is the number of days the period lasts
+            period_dates = []
+            for i in range(period_duration):
                 period_day = next_period_start + timedelta(days=i)
-                # Compare the period days with the current week dates
-                if period_day in week_dates:  # Compare date objects directly
+                if period_day <= today and period_day in week_dates:
                     period_dates.append(period_day)
+
             period_data = get_period_progress(last_period_date, cycle_length, period_duration)
-        else:
-            period_data = None  # No menstrual cycle info for the user
+       
 
     # Pass the variables to the template
     return render(request, "index.html", {
@@ -150,8 +152,7 @@ def cycle_details(request):
         return redirect('index')  # Redirect to home page after saving the details
 
     return render(request, 'details.html', {'cycle_info': cycle_info})  # Render the details page
-from datetime import datetime, timedelta
-from tracker1.models import MenstrualCycle
+
 
 def get_period_progress(last_period_date, cycle_length, period_duration):
     today = datetime.today().date()
@@ -159,13 +160,16 @@ def get_period_progress(last_period_date, cycle_length, period_duration):
     next_period_start, next_period_end = predict_next_period(last_period_date, cycle_length, period_duration)
 
     if next_period_start <= today <= next_period_end:
-        # User is on their period, calculate the progress
+        # User is on their period, calculate the progress and the day of the period
         days_into_period = (today - next_period_start).days + 1  # +1 because the period starts on the first day
         progress = (days_into_period / period_duration) * 100
         return {
             'on_period': True,
             'progress': round(progress, 2),
-            'days_left': None  # No need to show days left if on period
+            'day_of_period': days_into_period,  # The current day of the period
+            'period_duration': period_duration,  # The total length of the period
+            'days_left': None ,
+            'period_days': [next_period_start + timedelta(days=i) for i in range(days_into_period)] # No need to show days left if on period
         }
     else:
         # User is not on their period, calculate days until next period
@@ -176,5 +180,8 @@ def get_period_progress(last_period_date, cycle_length, period_duration):
         return {
             'on_period': False,
             'progress': 0,
-            'days_left': days_until_next_period
+            'day_of_period': None,
+            'period_duration': None,
+            'days_left': days_until_next_period,
+            'period_days': []
         }
