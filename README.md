@@ -11,7 +11,7 @@
 - Member 3: Mehara Ayisha T - CET
 
 ### Hosted Project Link
-[mention your project hosted project link here]
+https://github.com/Mehraayisha/menstral_cycle_tracker
 
 ### Project Description
 My project is a comprehensive menstrual cycle tracker and health assistant that predicts incoming cycles, tracks current cycles, and marks them on a calendar. It also features a progress bar, AI chatbot, nearby doctors search, and a self-care page with tips and videos for managing periods.
@@ -47,7 +47,6 @@ For Software:
 this is our homepage
 ![Screenshot 2025-02-01 174849](https://github.com/user-attachments/assets/9b3e4be2-2a41-4e39-a91a-f96e5619f640)
 this selfcare page
-*Add caption explaining what this shows*
 ![Screenshot 2025-02-01 174948](https://github.com/user-attachments/assets/b7dd5478-0dc8-43a2-b721-829899e9b1d3)
 products page
 ![Screenshot 2025-02-01 175013](https://github.com/user-attachments/assets/b64df936-4d40-4d85-abeb-9bf7d6f29e90)
@@ -62,16 +61,6 @@ For Hardware:
 # Build Photos
 ![WhatsApp Image 2025-02-01 at 17 58 08_0f8f1ee5](https://github.com/user-attachments/assets/1af58299-0492-490f-ae5d-fe77f6707e72)
 
-
-
-![Components](Add photo of your components here)
-*List out all components shown*
-
-![Build](Add photos of build process here)
-*Explain the build steps*
-
-![Final](Add photo of final product here)
-*Explain the final build*
 
 ### Project Demo
 # Video
