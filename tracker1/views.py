@@ -87,7 +87,7 @@ def tracker(request):
     if MenstrualCycle.objects.filter(user=user).exists():
         # If the details are already entered, redirect to the index page
         messages.info(request, "Your cycle details are already saved.")
-        return redirect('index')  # or you can redirect to any other page like home
+        return redirect('tracking')  # or you can redirect to any other page like home
     else:
         # If no details are saved, show the details form
         return render(request, 'details.html')
@@ -123,7 +123,7 @@ def cycle_details(request):
     # Check if the user already has menstrual cycle details
     try:
         cycle_info = MenstrualCycle.objects.get(user=user)
-        return redirect('index')
+        return redirect('tracking')
 
     except MenstrualCycle.DoesNotExist:
         cycle_info = None  # User doesn't have details, so we can collect them
@@ -148,7 +148,7 @@ def cycle_details(request):
 
         # Display success message
         messages.success(request, 'Cycle details have been saved successfully!')
-        return redirect('index')  # Redirect to home page after saving the details
+        return redirect('tracking')  # Redirect to home page after saving the details
 
     return render(request, 'details.html', {'cycle_info': cycle_info})  # Render the details page
 
