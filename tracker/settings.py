@@ -92,7 +92,11 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'tracker',
          'USER':'postgres',
+<<<<<<< HEAD
+         'PASSWORD':'sherin',
+=======
          'PASSWORD':'1234',
+>>>>>>> b79300aff9601651b59387f4c91e21cff06df9b4
          'HOST':'localhost',
     }
 }

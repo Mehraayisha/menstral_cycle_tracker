@@ -15,6 +15,8 @@ def login_redirect(request):
 
 def products(request):
     return render(request, 'products.html')
+def video(request):
+    return render(request, 'video.html')
 
 def video(request):
     return render(request, 'video.html')

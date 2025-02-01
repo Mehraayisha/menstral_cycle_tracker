@@ -7,9 +7,8 @@ urlpatterns=[
     path('tracking/',views.tracking,name='tracking'),
     path('accounts/',include('accounts.urls')),
     path('cycle-details/',views.cycle_details,name='cycle_details'),
-     path('tracker/', views.tracker, name='tracker'),
+    path('tracker/', views.tracker, name='tracker'),
     path('home/', views.home, name='home'),
     path('products/',views.products,name='products'),
     path('video/',views.video,name='video'),
-    
 ]

@@ -2,9 +2,9 @@
 
 :root{
     --lighter:#FFD1DC;
-    --light:#FFB6C1;
-    --dark:#FF69B4;
-    --darkest:#921A40;
+    --light:rgb(246, 222, 231);
+    --dark:rgb(166, 98, 125);
+    --darkest:rgb(140, 73, 100);
 }
 *{
     margin: 0;
