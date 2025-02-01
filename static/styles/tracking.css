@@ -12,7 +12,7 @@
 /* General Styles */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
+    background-color: #320404;
     color: #333;
     margin: 0;
     padding: 0;
@@ -21,15 +21,24 @@ body {
     font-optical-sizing: auto;
     font-style: normal;
 }
-nav{
+/* nav{
     display: flex;
     align-items: center;
     justify-content: flex-start;
     flex-direction: row;
     font-size:25px;  
+<<<<<<< HEAD
     /* background-color: rgb(253, 252, 253); */
     background-color: #e5d5dd;
 }
+=======
+    background-color: #860045;
+     height: 20px;
+} */
+ nav{
+    background-color: #fff;
+ }
+>>>>>>> b79300aff9601651b59387f4c91e21cff06df9b4
 nav p{
     color: var(--color); 
     font-weight: 900;
@@ -38,7 +47,7 @@ nav p{
 }
 /* Header */
 header {
-    background-color: #ff6f61;
+    background-color: #05cf34;
     color: white;
     padding: 1.5rem 0;
     text-align: center;
@@ -58,7 +67,7 @@ header h1 {
 }
 
 h1 {
-    color: #ff6f61;
+    color: #8a150a;
 }
 
 h2 {
@@ -68,7 +77,11 @@ h2 {
 /* Calendar Styling */
 #calendar {
     padding: 20px;
+<<<<<<< HEAD
     background-color: #840c1a;
+=======
+    background-color: #800d1a;
+>>>>>>> b79300aff9601651b59387f4c91e21cff06df9b4
     border-radius: 8px;
 }
 
@@ -100,7 +113,11 @@ h2 {
 
 /* Highlight the current day */
 #calendar .current-day {
+<<<<<<< HEAD
     background-color: #dc75aa;
+=======
+    background-color: #03030d;
+>>>>>>> b79300aff9601651b59387f4c91e21cff06df9b4
     font-weight: bold;
     color: white;
     z-index: 15;
@@ -115,7 +132,7 @@ h2 {
 .red-dot {
     width: 10px;
     height: 10px;
-    background-color: #D5006D;
+    background-color: #00d579;
     border-radius: 50%;
     position: absolute;
     bottom: 5px;
@@ -182,6 +199,6 @@ h2 {
     transform: translate(-50%, -50%);
     font-size: 20px;
     font-weight: bold;
-    color: #000000;
+    color: #5c0c3d;
     z-index: 35;
 }

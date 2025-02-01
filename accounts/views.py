@@ -13,45 +13,44 @@ def logout(request):
 
 # Login and Signup view (both in the same page)
 def signinup(request):
+    errors = {}
+    form_type = "signin"  # Default to sign-in
+
     if request.method == "POST":
         # Handle login
         if 'signin_submit' in request.POST:
+            form_type = "signin"
             username = request.POST.get('username', '')
             password = request.POST.get('password', '')
 
             user = auth.authenticate(username=username, password=password)
             if user is not None:
                 auth.login(request, user)
-                return redirect('home')  # Redirect to home page or any other page
+                return redirect('home')  # Redirect to home page
             else:
-                messages.error(request, 'Invalid username or password')
-                return redirect('signinup')  # Stay on the page if login fails
+                errors['general'] = 'Invalid username or password'
 
         # Handle signup
         elif 'signup_submit' in request.POST:
+            form_type = "signup"
             username = request.POST.get('username', '')
             email = request.POST.get('email', '')
             password1 = request.POST.get('password1', '')
             password2 = request.POST.get('password2', '')
 
-            # Check if passwords match
             if password1 != password2:
-                messages.error(request, 'Passwords do not match')
-                return redirect('signinup')
+                errors['password2'] = 'Passwords do not match'
 
-            # Check if username or email already exists
             if User.objects.filter(username=username).exists():
-                messages.error(request, 'Username already exists')
-                return redirect('signinup')
+                errors['username'] = 'Username already exists'
 
-            # Create the user if everything is valid
-            user = User.objects.create_user(username=username, password=password1, email=email)
-            user.save()
+            if User.objects.filter(email=email).exists():
+                errors['email'] = 'Email already registered'
 
-            # Log the user in after successful signup
-            auth_login(request, user)
+            if not errors:
+                user = User.objects.create_user(username=username, password=password1, email=email)
+                user.save()
+                auth_login(request, user)
+                return redirect('home')
 
-            # Redirect to the home page after successful signup
-            return redirect('home')
-
-    return render(request, 'signinup.html')
+    return render(request, 'signinup.html', {'errors': errors, 'form_type': form_type})
