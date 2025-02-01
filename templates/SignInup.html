@@ -2,12 +2,13 @@
 <!DOCTYPE html>
 <html lang="en">
     {% csrf_token %}
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
-    <link rel="stylesheet" href="{% static 'styles/Signin.css' %}">
+    <link rel="stylesheet" href="{% static 'styles/SignIn.css' %}">
 
     <title>Login Page</title>
 </head>
@@ -28,7 +29,7 @@
                 </div> -->
                 <!-- <span>or use your email for registeration</span> -->
                 <input type="text" name="username" placeholder="Name">
-                <input type="email" name="email"placeholder="Email">
+                <input type="email" name="email" placeholder="Email">
                 <input type="password" name="password1" placeholder="Password">
                 <input type="password" name="password2" placeholder="Confirm password">
                 <!-- Display error/success messages -->
@@ -68,7 +69,7 @@
                 {% endif %}
 
                 <button type="submit" name="signin_submit">Sign In</button>
-            </form >
+            </form>
         </div>
         <div class="toggle-container">
             <div class="toggle">
