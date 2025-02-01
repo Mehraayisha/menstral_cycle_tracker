@@ -71,9 +71,9 @@ For Hardware:
 
 
 ## Team Contributions
-sherin:frontend
-sandra:frontend
-mehra:backend
+sherin:frontend,ai chatbot
+sandra:frontend,location based doctor fetching
+mehra:backend,database
 
 ---
 Made with ❤️ at TinkerHub
