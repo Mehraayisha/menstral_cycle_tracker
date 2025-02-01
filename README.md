@@ -25,16 +25,18 @@ We’ve created a fun, easy-to-use platform that not only tracks your cycle but 
 ## Technical Details
 ### Technologies/Components Used
 For Software:
-- HTML,CSS,JS,PYTHON
-- DJANGO
-- POSTGRES SQL
-
+- FRONTEND : HTML,CSS,JS
+- BACKEND : DJANGO,PYTHON
+- DATABASE : POSTGRES SQL
+- GEMINI API , GOOGLE PLACES API
 
 ### Implementation
 For Software:
 # Installation
 django
 venv
+dotenv
+postgres sql
 
 # Run
 python manage.py runserver
@@ -53,7 +55,8 @@ products page
 doctors searching page
 ![Screenshot 2025-02-01 175129](https://github.com/user-attachments/assets/aa6d757c-7d42-4a1b-9e49-34396abf1c4d)
 
-![WhatsApp Image 2025-02-01 at 17 53 18_db6c5081](https://github.com/user-attachments/assets/95643dfb-ab22-440e-bf0c-99c0447c63e1)
+![WhatsApp Image 2025-02-01 at 18 32 09_e86ff26f](https://github.com/user-attachments/assets/7d1d3f62-7834-40d1-a53f-9c0e24b4302c)
+
 tracking page
 
 For Hardware:
