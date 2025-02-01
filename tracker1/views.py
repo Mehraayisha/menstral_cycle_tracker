@@ -20,7 +20,7 @@ def video(request):
     return render(request, 'video.html')
 
 @login_required
-def index(request):
+def tracking(request):
     today = datetime.today().date()  # Get today's date
     current_hour = datetime.now().hour
     start_of_week = today - timedelta(days=today.weekday())  # Get the start of the current week (Monday)
@@ -66,9 +66,9 @@ def index(request):
 
             period_data = get_period_progress(last_period_date, cycle_length, period_duration)
        
-
+    print("hii")
     # Pass the variables to the template
-    return render(request, "index.html", {
+    return render(request, "tracking.html", {
         'greeting': greeting,
         'week_names': week_names,
         'week_dates': week_dates,  # Pass the full date objects
