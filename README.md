@@ -44,31 +44,24 @@ For Software:
 
 # Screenshots (Add at least 3)
 ![Screenshot 2025-02-01 174814](https://github.com/user-attachments/assets/dcac5152-0f7b-4602-93eb-ee713be43d6f)
-
-![Screenshot1](Add screenshot 1 here with proper name)
+this is our homepage
+![Screenshot 2025-02-01 174849](https://github.com/user-attachments/assets/9b3e4be2-2a41-4e39-a91a-f96e5619f640)
+this selfcare page
 *Add caption explaining what this shows*
+![Screenshot 2025-02-01 174948](https://github.com/user-attachments/assets/b7dd5478-0dc8-43a2-b721-829899e9b1d3)
+products page
+![Screenshot 2025-02-01 175013](https://github.com/user-attachments/assets/b64df936-4d40-4d85-abeb-9bf7d6f29e90)
+doctors searching page
+![Screenshot 2025-02-01 175129](https://github.com/user-attachments/assets/aa6d757c-7d42-4a1b-9e49-34396abf1c4d)
 
-![Screenshot2](Add screenshot 2 here with proper name)
-*Add caption explaining what this shows*
-
-![Screenshot3](Add screenshot 3 here with proper name)
-*Add caption explaining what this shows*
-
-# Diagrams
-![Workflow](Add your workflow/architecture diagram here)
-*Add caption explaining your workflow*
+![WhatsApp Image 2025-02-01 at 17 53 18_db6c5081](https://github.com/user-attachments/assets/95643dfb-ab22-440e-bf0c-99c0447c63e1)
+tracking page
 
 For Hardware:
 
-# Schematic & Circuit
-![Circuit](Add your circuit diagram here)
-*Add caption explaining connections*
-
-![Schematic](Add your schematic diagram here)
-*Add caption explaining the schematic*
-
 # Build Photos
-![Team](Add photo of your team here)
+![WhatsApp Image 2025-02-01 at 17 58 08_0f8f1ee5](https://github.com/user-attachments/assets/1af58299-0492-490f-ae5d-fe77f6707e72)
+
 
 
 ![Components](Add photo of your components here)
@@ -85,8 +78,6 @@ For Hardware:
 [Add your demo video link here]
 *Explain what the video demonstrates*
 
-# Additional Demos
-[Add any extra demo materials/links]
 
 ## Team Contributions
 - [Name 1]: [Specific contributions]
