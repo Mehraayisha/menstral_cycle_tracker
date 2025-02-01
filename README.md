@@ -65,13 +65,12 @@ For Hardware:
 ### Project Demo
 # Video
 [Add your demo video link here]
-*Explain what the video demonstrates*
 
 
 ## Team Contributions
-- [Name 1]: [Specific contributions]
-- [Name 2]: [Specific contributions]
-- [Name 3]: [Specific contributions]
+sherin:frontend
+sandra:frontend
+mehra:backend
 
 ---
 Made with ❤️ at TinkerHub
