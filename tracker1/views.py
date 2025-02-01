@@ -66,7 +66,7 @@ def tracking(request):
 
             period_data = get_period_progress(last_period_date, cycle_length, period_duration)
        
-    print("hii")
+    
     # Pass the variables to the template
     return render(request, "tracking.html", {
         'greeting': greeting,
