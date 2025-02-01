@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap');
+:root{
+    --color:rgb(166, 98, 125);
+    --seccolor:rgb(240, 198, 215);
+    --text:white;
+    --third:rgb(255, 219, 233);
+    font-family: "Quicksand", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+   
+}
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #320404;
+    color: #333;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+    font-family: "Quicksand", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+/* nav{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    font-size:25px;  
+<<<<<<< HEAD
+    /* background-color: rgb(253, 252, 253); */
+    background-color: #e5d5dd;
+}
+=======
+    background-color: #860045;
+     height: 20px;
+} */
+ nav{
+    background-color: #fff;
+ }
+>>>>>>> b79300aff9601651b59387f4c91e21cff06df9b4
+nav p{
+    color: var(--color); 
+    font-weight: 900;
+    font-size: xx-large;
+    margin-left: -10px;
+}
+/* Header */
+header {
+    background-color: #05cf34;
+    color: white;
+    padding: 1.5rem 0;
+    text-align: center;
+    font-size: 1.5rem;
+}
+
+header h1 {
+    color: white;
+    font-size: 2rem;
+}
+
+/* Container */
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    text-align: center;
+}
+
+h1 {
+    color: #8a150a;
+}
+
+h2 {
+    margin: 20px 0;
+}
+
+/* Calendar Styling */
+#calendar {
+    padding: 20px;
+<<<<<<< HEAD
+    background-color: #840c1a;
+=======
+    background-color: #800d1a;
+>>>>>>> b79300aff9601651b59387f4c91e21cff06df9b4
+    border-radius: 8px;
+}
+
+/* Flexbox Row for Weekday Names and Dates */
+.calendar-row {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+
+/* Weekday Names Styling */
+.weekday-row .day-name {
+    font-weight: bold;
+    text-align: center;
+    padding: 5px;
+    width: 50px;
+}
+
+/* Dates Styling */
+.date-row .day {
+    position: relative;
+    padding: 10px;
+    background-color: #ffcccc;
+    text-align: center;
+    border-radius: 5px;
+    font-weight: bold;
+    width: 50px;
+}
+
+/* Highlight the current day */
+#calendar .current-day {
+<<<<<<< HEAD
+    background-color: #dc75aa;
+=======
+    background-color: #03030d;
+>>>>>>> b79300aff9601651b59387f4c91e21cff06df9b4
+    font-weight: bold;
+    color: white;
+    z-index: 15;
+}
+
+/* Hover effect on the days */
+#calendar .day:hover {
+    background-color: #ffb3b3;
+}
+
+/* Red Dot Styling */
+.red-dot {
+    width: 10px;
+    height: 10px;
+    background-color: #00d579;
+    border-radius: 50%;
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+/* Calendar day with a red dot */
+.calendar-day.has-period {
+    background-color: #ffcccc;
+}
+
+
+
+/* Progress Container */
+.progress-container {
+    position: absolute;
+    width: 150px;
+    height: 150px;
+    z-index: 20;
+}
+
+/* Outer static circle (Ring) */
+.outer-circle {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    background: #ddd;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+/* Inner static circle (White center) */
+.inner-circle {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: white; /* Set the inner circle to white */
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 25;
+}
+
+/* Progress ring (Dark Pink ring) */
+.progress-ring {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: conic-gradient(#D5006D var(--progress, 0%), #ddd var(--progress, 0%)); /* Dark pink color */
+    z-index: 10;
+}
+
+/* Text displaying progress value */
+.progress-value {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 20px;
+    font-weight: bold;
+    color: #5c0c3d;
+    z-index: 35;
+}

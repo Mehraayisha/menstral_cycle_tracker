@@ -18,9 +18,6 @@ def products(request):
 def video(request):
     return render(request, 'video.html')
 
-def video(request):
-    return render(request, 'video.html')
-
 @login_required
 def tracking(request):
     today = datetime.today().date()  # Get today's date

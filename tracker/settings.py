@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'accounts',
     'chatbot',
+    'doctors',
     
 ]
 
@@ -92,11 +93,7 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'tracker',
          'USER':'postgres',
-<<<<<<< HEAD
-         'PASSWORD':'sherin',
-=======
-         'PASSWORD':'1234',
->>>>>>> b79300aff9601651b59387f4c91e21cff06df9b4
+         'PASSWORD':'Sandra@94000',
          'HOST':'localhost',
     }
 }
@@ -150,3 +147,5 @@ MEDIA_ROOT=os.path.join(BASE_DIR,'media')
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+GOOGLE_PLACES_API_KEY = "AIzaSyC4W6PgbkLkkeNlunJgFkqqYjLwYEMgmSo"

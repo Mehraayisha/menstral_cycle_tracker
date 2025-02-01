@@ -1,0 +1,68 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nearby Doctors</title>
+    <link rel="stylesheet" href="{% static 'styles/doctors.css' %}">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <img src="{% static 'images/logo.jpg'  %}" alt="img" width="100px">
+            <p>MOONSYNC</p>
+        </div>
+    </nav>
+    <div class="container">
+        <div><h2>Nearby Doctors</h2></div>
+        <div><p class="description">
+            Searching for doctors nearby has never been easier! Just enter your location and get a list of doctors available in your vicinity. Whether it's for regular checkups, emergencies, or consultations, we've got you covered!
+        </p></div>
+        <div><p id="status">Fetching your location...</p></div>
+        <div id="doctors-list"></div>
+    </div>
+    <script>
+        function fetchDoctors(lat, lon) {
+            fetch(`/doct/get_nearby_doctors/?lat=${lat}&lon=${lon}`)
+            .then(response => response.json())
+            .then(data => {
+                let container = document.getElementById("doctors-list");
+                container.innerHTML = "";
+                if (data.doctors.length === 0) {
+                    container.innerHTML = "<p>No doctors found nearby.</p>";
+                } else {
+                    data.doctors.forEach(doctor => {
+                        container.innerHTML += `
+                            <div class="doctor-card">
+                                <h3>${doctor.name}</h3>
+                                <p><strong>Address:</strong> ${doctor.address}</p>
+                                <p><strong>Phone:</strong> ${doctor.phone || 'N/A'}</p>
+                                <a href="${doctor.website || '#'}" target="_blank">Visit Website</a>
+                            </div>
+                        `;
+                    });
+                }
+            })
+            .catch(error => {
+                document.getElementById("status").innerText = "Error fetching doctors.";
+                console.error(error);
+            });
+        }
+
+        // Get user's location
+        if (navigator.geolocation) {
+            navigator.geolocation.getCurrentPosition(position => {
+                let lat = position.coords.latitude;
+                let lon = position.coords.longitude;
+                document.getElementById("status").innerText = "Finding doctors near you...";
+                fetchDoctors(lat, lon);
+            }, () => {
+                document.getElementById("status").innerText = "Location access denied.";
+            });
+        } else {
+            document.getElementById("status").innerText = "Geolocation is not supported.";
+        }
+    </script>
+</body>
+</html>
