@@ -1,7 +1,7 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="en">
-    {% csrf_token %}
+{% csrf_token %}
 
 <head>
     <meta charset="UTF-8">
@@ -57,7 +57,7 @@
                 <!-- <span>or use your email password</span> -->
                 <input type="text" name="username" placeholder="username">
                 <input type="password" name="password" placeholder="Password">
-                
+
                 <!-- <a href="#">Forget Your Password?</a> -->
                 <!-- Display error/success messages -->
                 {% if request.path == '/signin/' %}
@@ -86,11 +86,11 @@
             </div>
         </div>
     </div>
-   
+
 
 
     <script src="{% static 'js/SignInup.js' %}"></script>
-    
+
 </body>
 
 </html>
