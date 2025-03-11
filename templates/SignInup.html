@@ -28,16 +28,11 @@
                     <a href="#" class="icon"><i class="fa-brands fa-linkedin-in"></i></a>
                 </div> -->
                 <!-- <span>or use your email for registeration</span> -->
-<<<<<<< HEAD
-                <input type="text" name="username" placeholder="Name">
-                <input type="email" name="email" placeholder="Email">
-=======
                 <input type="hidden" name="form_type" value="signup">
 
                 <input type="text" name="username" placeholder="Name" value="{{ request.POST.username }}">
                 
                 <input type="email" name="email"placeholder="Email">
->>>>>>> b79300aff9601651b59387f4c91e21cff06df9b4
                 <input type="password" name="password1" placeholder="Password">
                 <input type="password" name="password2" placeholder="Confirm password">
                 {% if form_type == "signup" and errors.username %}
@@ -72,13 +67,10 @@
                 <input type="hidden" name="form_type" value="signin">
                 <input type="text" name="username" placeholder="Username" value="{{ request.POST.username }}">
                 <input type="password" name="password" placeholder="Password">
-<<<<<<< HEAD
-=======
                 
                 {% if form_type == "signin" and errors.general %}
                     <p class="error-text">{{ errors.general }}</p>
                 {% endif %}
->>>>>>> b79300aff9601651b59387f4c91e21cff06df9b4
 
                 <!-- <a href="#">Forget Your Password?</a> -->
                 <!-- Display error/success messages -->

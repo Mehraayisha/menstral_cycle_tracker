@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Quicksand:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Quicksand:wght@300..700&display=swap');
+:root{
+    --color:rgb(166, 98, 125);
+    --seccolor:rgb(240, 198, 215);
+    --text:white;
+    --third:rgb(255, 219, 233);
+    font-family: "Quicksand", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+*{
+    padding:0px;
+    margin:0px;
+}
+.logo{
+    display: flex;
+    gap:-30px;
+    align-items:center;
+    font-size: 25px;
+    margin-left: -900px;
+}
+/* div{
+    position:relative;
+} */
+body{
+    background-color: var(--seccolor);
+}
+nav{
+    display: flex;
+    justify-content:space-around;
+    font-weight: bolder;
+    position: fixed;
+    top:0px;
+    width:100vw;
+    background-color: rgb(253, 252, 253);
+    z-index: 20;
+}
+.logo p{
+    color: var(--color);
+    font-weight:900;
+    font-size:xx-large;
+    margin-left:-10px;
+}
+.container {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content:flex-start;
+    flex-direction: column;
+    padding: 20px;
+    min-height: 100vh; /* Ensures full coverage */
+    top: -60px;
+}
+
+/* Background Image with Reduced Opacity */
+.container::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("../image/bg2.jpeg");
+    background-size: cover;
+    background-position: center;
+    opacity: 1; 
+    z-index:-1; 
+}
+h2 {
+    position: relative;
+    top:150px;
+    text-align: center;
+    color:var(--color);
+    font-size:29px;
+    z-index: 10;
+}
+
+#status {
+    position: relative;
+    top:250px;
+    text-align: center;
+    color: #888;
+}
+
+#doctors-list {
+    color: black;
+    position: relative;
+    top:200px;
+}
+.description {
+    font-size: 18px;
+    color:var(--color);
+    margin-top: 0;
+    line-height: 1.5;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    position:relative;
+    top:200px;
+}
+#doctors-list {
+    margin-top: 20px;
+}
+
+.doctor-card {
+    background: #fff;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+    margin-bottom: 15px;
+}
+
+.doctor-card h3 {
+    margin: 0;
+    color: var(--color);
+}
+
+.doctor-card p {
+    margin: 5px 0;
+    color: #555;
+}
+
+.doctor-card a {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 12px;
+    background: var(--color);
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.doctor-card a:hover {
+    background: var(--color);
+}
